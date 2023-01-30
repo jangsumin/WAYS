@@ -12,6 +12,12 @@
 ## Docker
 - Dockerfile을 이용해서 Docker Container
 - Docker Compose를 사용
+
+## Test
+- 유닛 테스트 > 코드 상으로 기능을 점검
+- E2E 테스트 > 실제 동작을 바탕으로 기능을 점검
+- Jest
+- `npm run test`로 테스트 시작
 ---
 ### Next 기반 강의 수강 사이트 개발
 - 타입스크립트 옵션으로 create-next-app
@@ -44,3 +50,10 @@ npm install eslint-config-airbnb-typescript \
 - 최상위 폴더 하단에 .github 폴더를 생성 후 CODEOWNERS 파일 생성
 
 `* @jansumin` -> codeowners에 지정된 사람이 리뷰를 남겼을 때만 merge가 가능하도록 하는 기능
+<br/>
+
+- Jest & React Testing 라이브러리 사용(Next.js 12버전부터 구성 방법이 바뀜), `jest.config.js` 파일 생성
+- 스타일 시트나 이미지 파일은 테스트에 포함되지 않지만, import 해오는 데 오류가 생길 수 있어서 __mocks__ 폴더 내에 js 파일로 설정 
+- package.json 파일에 scripts에 테스트 항목 추가, `"test": "jest --watch"`
+- __tests__ 폴더 내에 index.test.jsx 파일 추가
+<br/>
