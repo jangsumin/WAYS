@@ -19,14 +19,17 @@
 ```bash
 npx create-next-app --ts [폴더명]
 ```
+<br/>
 
 - 서버 동작시키는 명령어
 
 ```bash
 npm run dev
 ```
+<br/>
 
 - 바벨 설정 -> `.babelrc`파일 생성
+<br/>
 
 - ESLint -> eslint-config-airbnb-typescript 사용, ESLint confing 파일에 추가
 
@@ -36,6 +39,7 @@ npm install eslint-config-airbnb-typescript \
             @typescript-eslint/parser@^5.0.0 \
             --save-dev
 ```
+<br/>
 
 - 최상위 폴더 하단에 .github 폴더를 생성 후 CODEOWNERS 파일 생성
 
