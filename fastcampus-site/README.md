@@ -9,9 +9,9 @@
 - ESLint
 - Babel 설정 (IE 11 대응)
 
-## Docker
-- Dockerfile을 이용해서 Docker Container
-- Docker Compose를 사용
+## ~~Docker~~
+- ~~Dockerfile을 이용해서 Docker Container~~
+- ~~Docker Compose를 사용~~
 
 ## Test
 - 유닛 테스트 > 코드 상으로 기능을 점검
@@ -34,7 +34,8 @@ npm run dev
 ```
 <br/>
 
-- 바벨 설정 -> `.babelrc`파일 생성
+- ~~바벨 설정 -> `.babelrc`파일 생성~~
+- 문제가 생겨서 바벨 빌드 파일 삭제
 <br/>
 
 - ESLint -> eslint-config-airbnb-typescript 사용, ESLint confing 파일에 추가
@@ -58,3 +59,12 @@ npm install eslint-config-airbnb-typescript \
 - package.json 파일에 scripts에 테스트 항목 추가, `"test": "jest --watch"`
 - `__tests__` 폴더 내에 index.test.jsx 파일 추가
 <br/>
+
+- Docker로 배포 환경 설정하려 했으나, 공식문서 참고하여 Next 기본 배포 방법 사용
+
+```bash
+npm run build
+npm run start
+```
+<br/>
+
