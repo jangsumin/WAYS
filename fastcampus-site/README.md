@@ -50,10 +50,11 @@ npm install eslint-config-airbnb-typescript \
 - 최상위 폴더 하단에 .github 폴더를 생성 후 CODEOWNERS 파일 생성
 
 `* @jansumin` -> codeowners에 지정된 사람이 리뷰를 남겼을 때만 merge가 가능하도록 하는 기능
+
 <br/>
 
 - Jest & React Testing 라이브러리 사용(Next.js 12버전부터 구성 방법이 바뀜), `jest.config.js` 파일 생성
-- 스타일 시트나 이미지 파일은 테스트에 포함되지 않지만, import 해오는 데 오류가 생길 수 있어서 __mocks__ 폴더 내에 js 파일로 설정 
+- 스타일 시트나 이미지 파일은 테스트에 포함되지 않지만, import 해오는 데 오류가 생길 수 있어서 `__mocks__` 폴더 내에 js 파일로 설정 
 - package.json 파일에 scripts에 테스트 항목 추가, `"test": "jest --watch"`
-- __tests__ 폴더 내에 index.test.jsx 파일 추가
+- `__tests__` 폴더 내에 index.test.jsx 파일 추가
 <br/>
