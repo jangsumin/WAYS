@@ -60,7 +60,7 @@ npm install eslint-config-airbnb-typescript \
 - `__tests__` 폴더 내에 index.test.jsx 파일 추가
 <br/>
 
-- Docker로 배포 환경 설정하려 했으나, 공식문서 참고하여 Next 기본 배포 방법 사용
+- Docker로 배포 환경 설정하려 했으나, 공식문서 참고하여 순수하게 Next 기본 배포 방법 사용
 
 ```bash
 npm run build
@@ -68,3 +68,5 @@ npm run start
 ```
 <br/>
 
+- CI/CD를 위한 GitHub Actions 추가는 따로 설정 X
+<br/>
