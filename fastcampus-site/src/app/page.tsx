@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
+      {/* <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
@@ -29,9 +29,21 @@ export default function Home() {
             />
           </a>
         </div>
+      </div> */}
+
+      <nav aria-label='fastcampus'>
+        fastcampus
+      </nav>
+
+      <div role='banner'>
+        
       </div>
 
-      <div className={styles.center}>
+      <div title='lectureList'>
+        <h1>강의 목록</h1>
+      </div>
+
+      {/* <div className={styles.center}>
         <Image
           className={styles.logo}
           src="/next.svg"
@@ -43,7 +55,7 @@ export default function Home() {
         <div className={styles.thirteen}>
           <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
         </div>
-      </div>
+      </div> */}
 
       <div className={styles.grid}>
         <a

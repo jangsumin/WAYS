@@ -69,4 +69,7 @@ npm run start
 <br/>
 
 - CI/CD를 위한 GitHub Actions 추가는 따로 설정 X
-<br/>
+---
+### 애플리케이션 개발
+- Data Flow 그리기
+- 유저 시나리오 작성 (비회원, 회원, 구매 회원, 어드민에 따라 다름)
