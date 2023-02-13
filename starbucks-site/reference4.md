@@ -149,9 +149,77 @@
     2. 1번 조건이 같으면, z-index 속성의 숫자 값이 높을수록 위에 쌓임
     3. 1번과 2번 조건까지 같은 경우, HTML의 다음 구조일수록 위에 쌓임
 -   단순히 z-index 값이 있다고 해서 요소가 가장 사용자와 무조건 가까이 있을 수 없음
+- z-index는 음수 값도 지정할 수 있는데, -1 미만으로 잘 쓰지 않음
+- position에 absolute나 fixed 값을 주면 사실 `display: block;`을 지정한 것과 같은 효과가 추가됨
 
 ### flex
+- 1차원의 레이아웃을 생성
+- 부모 요소에 `display: flex;`를 적용하여 자식 요소들이 수평 정렬됨
+- flex container, flex items로 역할을 나눌 수 있음
+- flex container에 적용가능한 속성
+    - display : flex(블록 요소), inline-flex(인라인 요소)
+    - flex-flow
+    - flex-direction : 주 축을 설정, 기본 값은 row, row-reverse, column, column-reverse의 값 지정 가능
+    - flex-wrap : flex items 묶음(줄 바꿈) 여부, nowrap(줄 바꿈 없음)이 기본 값이고, wrap이 여러 줄로 묶음
+    - nowrap일 때 부모 요소인 container의 너비보다 넘쳐나면 자식 요소가 찌그러짐
+    - jusify-content : 주 축의 정렬 방법, flex-start(기본 값), flex-end, center, space-between, space-around
+    - align-content : 교차 축의 여러 줄 정렬 방법, stretch(기본 값), flex-start, flex-end, center, space-between, space-around
+    - align-items : 교차 축의 한 줄 정렬 방법, stretch(기본 값), flex-start, flex-end, center, baseline(문자 기준선에 정렬)
+- flex items에 적용가능한 속성
+    - order : 0(기본 값, 순서 없음), 숫자 값을 줘서 정렬 순서를 변경 가능
+    - flex
+    - flex-grow : flex item의 증가 너비 비율, 0(기본 값), 증가 비율을 숫자로 지정 가능
+    - flex-shrink : flex item의 감소 너비 비율, 1(기본 값), 감소 비율을 숫자로 지정 가능
+    - 부모 요소의 너비를 넘어가지 않게 자식 요소들이 찌그러드는 이유가 flex-shrink의 기본 값이 1이기 때문
+    - flex-basis : flex item의 공간 배분 전 기본 너비, auto(기본 값, 요소의 content 너비)
+    - flex-basis에 0을 주면, 글자와 같은 컨텐트 너비와 관계 없이 자식 요소들의 너비가 flex-grow만큼 지정됨
+    - align-self : flex item 하나만 정렬 방식을 지정
 
 ### 전환
+- 요소의 전, 후 상태가 있는 경우에만 전환 효과를 지정할 수 있음(ex. :active, :hover)
+- transition : 요소의 전환(시작과 끝) 효과를 지정하는 단축 속성
+- `transition: 속성명 지속시간 타이밍함수 대기시간;`의 형태로 쓸 수 있음
+- 쉼표를 넣어서 단축 속성을 여러 개 지정할 수 있음
+- 지속시간(transition-duration)은 필수 속성
+- transition-property : 전환 효과를 사용할 속성 이름을 지정, 기본 값은 all
+- transition-duration : 전환 효과의 지속시간을 지정, 기본 값은 0s
+- transition-timing-function : 전환 효과의 타이밍 함수를 지정
+    - ease : 느리게-빠르게-느리게(기본 값)
+    - linear : 일정하게
+    - ease-in : 느리게-빠르게
+    - ease-out : 빠르게-느리게
+    - ease-in-out : 느리게-빠르게-느리게
+    - cubic-bezier(n, n, n, n)
+    - steps() : 계단 함수
+- easing 함수 치트 시트를 검색하면 원하는 타이밍 함수를 얻을 수 있음
+- transition-delay : 전환 효과 전 대기 시간
 
 ### 변환
+- transform 속성 사용
+- `transform: 변환함수1 변환함수2 변환함수3;`처럼 나열해서 여러 함수 사용 가능
+- 따로 설명 안한 함수들은 중요도 떨어짐
+- 2D 변환 함수
+    - translate(x, y)
+    - translateX(x)
+    - translateY(y)
+    - rotate(degree) : 원하는 만큼 시계방향으로 회전, deg 단위 사용
+    - scale(x, y) : 크기를 늘림
+    - scaleX(x)
+    - scaleY(y)
+    - skewX(x) : 기울임(x축), 요소를 기울여서 마름모로 만드는 함수, deg 단위 사용
+    - skewY(y) : 기울임(y축)
+    - matrix(n, n, n, n, n, n)
+- 3D 변환 함수
+    - translateZ(z)
+    - translate3d(x, y, z)
+    - scaleZ(z)
+    - scale3d(x, y, z)
+    - rotateX(x) : 회전(x축)
+    - rotateY(y) : 회전(y축)
+    - rotate3d(x, y, z, a)
+    - perspective(n) : 원근법(거리), **제일 앞에 명시해야 작용함**
+    - matrix3d(n, n, n, ..., n)
+- persepective 함수가 있고 속성이 따로 있음
+    - 속성 `perspective: 600px;`은 관찰 대상의 부모가 적용 대상임
+    - 함수 `transfrom: perspective(600px)`는 관찰 대상이 적용 대상임
+- backface-visibility : 뒷면이 안보이게 할 수 있는 속성으로, hidden 값을 주면 됨, visible이 기본 값, 요소 자체가 사라진 것은 아님
