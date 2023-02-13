@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <div id="root"></div>
+        <!-- Vanilla JS의 기본적인 화면 렌더링 방법 -->
+        <!-- <script>
+            const root = document.getElementById('root');
+            const el = document.createElement('h1');
+            el.textContent = 'Hello, world!';
+            root.appendChild(el);
+        </script> -->
+
+        <!-- React의 기본적인 화면 렌더링 방법 -->
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script>
+            const root = document.getElementById('root');
+            // const el = React.createElement('h1', { children: 'Hello, world!' });
+            const el = React.createElement('h1', null, 'Hello, world!');
+            ReactDOM.render(el, root);
+        </script>
+    </body>
+</html>
