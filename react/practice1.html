@@ -13,10 +13,19 @@
         <!-- React의 기본적인 화면 렌더링 방법 -->
         <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-        <script>
+
+        <!-- JSX 사용시 추가 -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
             const root = document.getElementById('root');
             // const el = React.createElement('h1', { children: 'Hello, world!' });
-            const el = React.createElement('h1', null, 'Hello, world!');
+            // const el = React.createElement('h1', null, 'Hello, world!');
+
+            // JSX 사용하기
+            // const el = <h1 className='title'>Hello, world!</h1>;
+            // const el = <div className='box' children={[<h1>Hi</h1>, <h3>Bye</h3>, <h5>Children</h5>]} />;
+            // div 대신 React.Fragment를 사용하면 root에 바로 삽입 가능, 이는 <></>와 같음
+            const el = <React.Fragment children={[<h1>Hi</h1>, <h3>Bye</h3>, <h5>Children</h5>]} />;
             ReactDOM.render(el, root);
         </script>
     </body>
