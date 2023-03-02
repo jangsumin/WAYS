@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Vanilla JS는 element를 계속 변경하면서 리렌더링
+      // React는 새로 element를 만들지 않고, 변경된 사항만 수정하고 리렌더링
+      // 이전과 달라진 내용을 비교하는 것은 React가 자동으로 함
+      const root = document.getElementById('root');
+
+      // function random() {
+      //   const number = Math.floor(Math.random() * (10 - 1) + 1);
+      //   const el = `
+      //     <button>${number}</button>
+      //   `;
+      //   root.innerHTML = el;
+      // }
+
+      function random() {
+        const number = Math.floor(Math.random() * (10 - 1) + 1);
+        const el = <button>{number}</button>;
+        ReactDOM.render(el, root);
+      }
+
+      setInterval(random, 1000);
+    </script>
+  </body>
+</html>
