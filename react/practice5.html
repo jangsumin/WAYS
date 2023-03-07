@@ -12,11 +12,27 @@
       // 간단한 검색 컴포넌트 생성
       // 굳이 render를 계속 해주지 않고도, useState 훅을 사용하면 React가 자동 반영
       const App = () => {
-        const [keyword, setKeyword] = React.useState('');
+        // 로컬 스토리지에 저장된 값이 크거나 길면 불러오는 데 오래 걸릴 수 있고, 오류 발생이 날 수 있음
+        // const [keyword, setKeyword] = React.useState(window.localStorage.getItem('keyword'));
+
+        // 그래서 함수를 전달하여 이 값이 전달될 때까지 기다리도록 함
+        const [keyword, setKeyword] = React.useState(() => {
+          console.log('initialize!');
+          return window.localStorage.getItem('keyword');
+        });
         const [typing, setTyping] = React.useState(false);
         const [result, setResult] = React.useState('');
 
+        // keyword 값이 변경될 때마다 일으키고 싶은 부수 효과를 useEffect 훅을 사용하여 실행
+        // dependency array를 빈 배열로 지정하면 처음에만 발생
+        // 아예 주지 않으면 컴포넌트의 모든 변경에 반응
+        React.useEffect(() => {
+          console.log('effect');
+          window.localStorage.setItem('keyword', keyword);
+        }, [keyword]);
+
         function handleChange(e) {
+          window.localStorage.setItem('keyword', e.target.value);
           setKeyword(e.target.value);
           setTyping(true);
         }
@@ -28,7 +44,7 @@
 
         return (
           <>
-            <input onChange={handleChange} />
+            <input onChange={handleChange} value={keyword} />
             <button onClick={handleClick}>search</button>
             <p>{typing ? `Looking for ${keyword}...` : result}</p>
           </>
